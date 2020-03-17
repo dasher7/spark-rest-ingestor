@@ -1,6 +1,5 @@
 package com.spark.ingestor.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,12 +9,8 @@ import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.spark.ingestor.model.RandomPrices;
 import com.spark.ingestor.mongo.MongoConnection;
 import com.spark.ingestor.parser.DocumentParser;
 import com.spark.ingestor.spark.SparkEngine;
@@ -24,9 +19,6 @@ import com.spark.ingestor.utils.StreamingUtils;
 
 @Service
 public class SparkService {
-	
-	@Autowired
-	private RandomPricesServcie randomPricesServcie;
 	
 	private JavaStreamingContext streamingContext = null; // used for streaming context
 	private JavaSparkContext sparkContext = null; // used for basic spark operation, stream not supported ( ? )
@@ -88,7 +80,7 @@ public class SparkService {
 				System.out.println("SAVING FOLLOWING EVENT INTO MONGO: " + event);
 				Map map = DocumentParser.StringToMapWithGuava(event);
 				Document document = new Document(map);
-				mongoConnection.getDatabase().getCollection(collection).insertOne(document);
+				mongoConnection.getDatabase().getCollection("randomprices").insertOne(document);
 			}
 		});
 
