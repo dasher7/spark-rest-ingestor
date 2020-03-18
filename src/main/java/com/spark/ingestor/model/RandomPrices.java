@@ -1,21 +1,16 @@
 package com.spark.ingestor.model;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.spark.ingestor.utils.TimeFormatter;
 
 import lombok.Data;
 
 
 @Data
 @Document(collection = "randomprices")
-public class RandomPrices {
+public class RandomPrices extends HashMap<String, Object>{
 	
 	private double high;
 	private double low;
@@ -23,5 +18,13 @@ public class RandomPrices {
 	private double last;
 	private long time;
 	private String date;
+	
+	public RandomPrices(Map map) {
+		super(map);
+	}
+
+	public RandomPrices() {
+
+	}
 
 }

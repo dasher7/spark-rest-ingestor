@@ -20,9 +20,15 @@ import com.spark.ingestor.utils.StreamingUtils;
 @Service
 public class SparkService {
 	
+	/*
+	 * used for basic spark operation, stream not supported ( ? )
+	 * NOTE: only one context is availble as default implementation
+	 * 
+	 * private JavaSparkContext sparkContext = null;
+	 * 
+	 */
+	
 	private JavaStreamingContext streamingContext = null; // used for streaming context
-	private JavaSparkContext sparkContext = null; // used for basic spark operation, stream not supported ( ? )
-													// NOTE: only one context is availble as default implementation
 
 	public boolean activateProducer() {
 		
@@ -58,9 +64,6 @@ public class SparkService {
 				StreamingUtils.PORT);
 		// inputStreamFromSource.print();
 
-		/*
-		 * TEST: 24/01/2020 Reading all data JSON-like data and saving it into mongo
-		 */
 		inputStreamFromSource.foreachRDD((rawEvents, time) -> {
 
 			MongoConnection mongoConnection = MongoConnection.getConnection();
