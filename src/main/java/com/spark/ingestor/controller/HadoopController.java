@@ -30,7 +30,7 @@ public class HadoopController {
 	@Autowired
 	private HadoopService hadoopService;
 
-	@GetMapping("/activateHadoopFileStream")
+	@GetMapping("/activateFileStream")
 	public ResponseEntity<Map> activateHadoopFileStream() {
 
 		Map responseBody = new HashMap();
