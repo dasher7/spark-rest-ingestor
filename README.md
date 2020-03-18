@@ -53,9 +53,9 @@ Note: in order for the Strems to work, there is the necessity to have the Produc
 ## Useful links:
 
   - *Swagger*: http://localhost:8080/swagger-ui.html#/
-  - *Hadoop Resource Manager : http://localhost:8088
+  - *Hadoop Resource Manager* : http://localhost:8088
   - *Hadoop Node Manager*  http://localhost:8042
-  - *Hadoop Name Node : http://localhost:50070
+  - *Hadoop Name Node* : http://localhost:50070
   - *Hadoop Data Node* : http://localhost:50075
  
 ## Contribuiton and Usage
