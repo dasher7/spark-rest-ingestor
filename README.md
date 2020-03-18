@@ -45,8 +45,8 @@ You can use the following API:
   
 ### Hadoop
 
-  You can use the following API:
-    - *@GET /hadoop/activateFileStream* : activate the ingestion process via Hadoop
+You can use the following API:
+  - *@GET /hadoop/activateFileStream* : activate the ingestion process via Hadoop
     
 Note: in order for the Strems to work, there is the necessity to have the Producers on. So, first thing first, call *@GET /spark/activateProducer*.
 
